@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="">
+    <meta name="description" content="E-Commerce Website">
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.4.2/css/all.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../detailpage.css">
+    <link href = "../header_Shoes.html" rel = "import"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>E-Commerce Website</title>
+</head>
+<body>
+     
+    <header>
+        <ul>
+          <a href="../index.html"><h1>E-Commerce</h1></a>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../index.html">Products</a></li>
+        </ul>
+      </header>
+    
+    <div class = "productPage">
+        <div class="profile">
+            <img id = "productImage" src="../images/shoe2.webp"  >
+        </div> 
+
+        <div class="main">
+            <div class="title" >
+                <p >Nike Air Max 270</p>
+                <div class = "category">Category: Black | Brand: Nike</div>
+                <div id = "rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <div id = "rating-review">13299 reviews</div>
+                  </div>
+            </div>
+
+            <p id = "price">$160.00</p>   
+            <p id = "description">Nike's first lifestyle Air Max brings you style, 
+                comfort and big attitude in the Nike Air Max 270. The design draws inspiration from Air Max icons, 
+                showcasing Nike's greatest innovation with its large window and fresh array of colors.</p>
+            </div>
+        </div>
+    </div>
+    
+   
+
+<fieldset id = "orderForm">
+    <legend style = "text-align: center;">
+
+          Order Information
+    </legend>
+    <div class="profile" style="text-align: center">
+        <form action="" name="OrderForm" onSubmit="CheckRegistration()">
+            <div class="row">
+                <div class="row" style="text-align: center">
+                    <label for="fname">First Name: </label><br>
+                    <input type="text" id="fname" name="fname" required><br>
+                </div>
+
+                <div class="row" style="text-align: center">
+                <label for="lname">Last Name: </label><br>
+                    <input type="text" id="lname" name="lname" required><br>
+                </div>
+
+                <div class="row" style="text-align: center">
+                    <label for="phone">Phone Number: </label><br>
+                    <input type="tel" id= "phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder = "123-456-7890" required><br>
+                </div>
+
+                <div class="row" style="text-align: center">
+                <label for="email">Email: </label><br>
+                    <input type="email" id="email" name="email" placeholder = "example@email.com" required><br><br>
+                </div>
+                <div class="row" style="text-align: center">
+                    <label for="credit-card">Credit Card Number: </label><br>
+                    <input type="text" id="credit-card" name="credit-card" placeholder="VISA Only" required><br>
+                </div>
+                <div class="row" style="text-align: center">
+
+                <label for="expiration-date">Expiration Date: </label><br>
+                    <select name='expireMM' id='expireMM' required>
+                        <option value=''>Month</option>
+                        <option value='01'>January</option>
+                        <option value='02'>February</option>
+                        <option value='03'>March</option>
+                        <option value='04'>April</option>
+                        <option value='05'>May</option>
+                        <option value='06'>June</option>
+                        <option value='07'>July</option>
+                        <option value='08'>August</option>
+                        <option value='09'>September</option>
+                        <option value='10'>October</option>
+                        <option value='11'>November</option>
+                        <option value='12'>December</option>
+                    </select>
+                    <select name='expireYY' id='expireYY' required>
+                        <option value=''>Year</option>
+                        <option value='21'>2022</option>
+                        <option value='22'>2023</option>
+                        <option value='23'>2024</option>
+                        <option value='24'>2025</option>
+                        <option value='25'>2026</option>
+                        <option value='25'>2027</option>
+
+                    </select>
+                    <br/>
+                </div>
+                <div class="row" style="text-align: center">
+                    <label for="address">Shipping Address: </label><br>
+                    <input type="text" id="address" name="address" required><br>
+                </div>
+                <div class="row" style="text-align: center">
+
+                <label for="state">State: </label><br>
+                <select name='state' id='state' required>
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AR">AR</option>	
+                        <option value="AZ">AZ</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DC">DC</option>
+                        <option value="DE">DE</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="IA">IA</option>	
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="MA">MA</option>
+                        <option value="MD">MD</option>
+                        <option value="ME">ME</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MO">MO</option>	
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="NC">NC</option>	
+                        <option value="NE">NE</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>			
+                        <option value="NV">NV</option>
+                        <option value="NY">NY</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WI">WI</option>	
+                        <option value="WV">WV</option>
+                        <option value="WY">WY</option>
+                    </select>	
+                <br>
+                </div>
+                <div class="row" style="text-align: center">
+                    <label for="zip">Zip Code: </label><br>
+                    <input type="text" id="zip" name="zip" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$" required><br>
+                </div>
+
+                <div class="row" style="text-align: center">
+                <label for="shipping-method">Shipping Method: </label><br>
+                    <select name="shipping-method" id="shipping-method">
+                        <option value="One-Day Delivery">One-Day Delivery</option>
+                        <option value="Three-Days Delivery">Three-Days Delivery</option>
+                        <option value="Normal Delivery">Normal Delivery</option>
+                    </select><br/><br>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 0;">
+                <div class="profile">
+                    <input class="formButton" type="submit" value="Submit Order">
+                </div>
+            </div>
+        </form>
+    </div>
+</fieldset>
+<script>
+    $(function(){
+      $("#nav-placeholder").load("../header_Shoes.html");
+    });
+
+    function CheckRegistration(){
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var phone = document.getElementById("phone").value;;
+        var email = document.getElementById("email").value;;
+        var credit = document.getElementById("credit-card").value;;
+        var expireMM = document.getElementById("expireMM").value;;
+        var expireYY = document.getElementById("expireYY").value;;
+        var address = document.getElementById("address").value;;
+        var state = document.getElementById("state").value;;
+        var zip = document.getElementById("zip").value;;
+        var shipping_method = document.getElementById("shipping-method").value;;
+
+
+    window.open("mailto:someone@example.com?subject=Purchase%20Order%20Information&body=First%20Name:%20"
+    +fname
+    +"%0ALast%20Name:%20"+lname
+    +"%0APhone%20Number:%20"+phone
+    +"%0AEmail:%20"+email
+    +"%0ACredit%20Card:%20"+credit
+    +"%0AExpiration%20Date:%20"+expireMM +"%20"+expireYY
+    +"%0AAddress:%20"+address
+    +"%0AState:%20"+state
+    +"%0AZip%20Code:%20"+zip
+    +"%0AShipping%20Method:%20"+shipping_method 
+    + "%0A"
+    );
+    }
+</script>
+</html>

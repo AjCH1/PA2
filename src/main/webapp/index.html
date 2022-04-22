@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="">
+    <meta name="description" content="E-Commerce Website">
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.4.2/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <link href = "header.html" rel = "import"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>E-Commerce Website</title>
+</head>
+<body>
+     
+    <div id="nav-placeholder">
+      <header>
+        <ul>
+          <a href="index.html"><h1>E-Commerce</h1></a>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html">Products</a></li>
+        </ul>
+      </header>
+    </div>
+
+    <div id = "names">
+      Group 12:&#160Ashley J. Chen,&#160 Yuxi Ge,&#160 Yilin Li 
+    </div>
+
+    <div id = "categoryHeader">
+      <h3>Choose Category</h3>
+      
+      <select id = "categorySelector" name = "category">
+        <option value="none" class = "category">None</option>
+        <option value="Black" class = "category">Black</option>
+        <option value="White" class = "category">White</option>
+        <option value="Red" class = "category">Red</option>
+        <option value="Other" class = "category">Other</option>
+      </select>
+             
+    </div>
+
+  <div class = "row">
+
+    <!--template-->
+    <div class = "column">
+    <a href = "Shoes/Nike Air Max 270.html" id = "Black" class="productCard">
+        <img src="images/shoe2.webp" alt="Nike Air Max 270.html" style="width: 50%">
+        <div class="productBoxContainer">
+          <div class = "productBoxText"> 
+            <div class = "productBoxCategory">Black</div>
+            <h4><b>Air Jordans 5</b></h4> 
+            <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+            <h4><b>$160.00</b></h4>  
+        </div>
+
+        <div id = "rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+
+          <div id = "rating-review">13299 reviews</div>
+ 
+        </div>
+      </div>
+    </a>
+    </div>
+  <!--template-->
+
+  <div class = "column">
+    <a href = "Shoes/Air Force 1.html" id = "White" class="productCard">
+        <img src="images/Air Force 1.webp" alt="Air Force 1" style="width:50%">
+        <div class="productBoxContainer">
+          <div class = "productBoxText"> 
+            <div class = "productBoxCategory">White</div>
+            <h4><b>Air Force 1</b></h4> 
+            <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+            <h4><b>$100.00</b></h4>  
+        </div>
+
+        <div id = "rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+
+          <div id = "rating-review">73462 reviews</div>
+ 
+        </div>
+      </div>
+    </a>
+    </div>
+
+    <div class = "column">
+      <a href = "Shoes/Nike Air Vapormax 2021.html" id = "Other" class="productCard">
+          <img src="images/shoe3.webp" alt="Nike Air Vapormax 2021" style="width: 50%">
+          <div class="productBoxContainer">
+            <div class = "productBoxText"> 
+              <div class = "productBoxCategory">Other</div>
+              <h4><b>Nike Air Vapormax 2021</b></h4> 
+              <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+              <h4><b>$210.00</b></h4>  
+          </div>
+  
+          <div id = "rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+  
+            <div id = "rating-review">26171 reviews</div>
+   
+          </div>
+        </div>
+      </a>
+      </div>
+
+    <div class = "column">
+      <a href = "Shoes/LeBron 19.html" id = "Other" class="productCard">
+          <img src="images/shoe4.webp" alt="LeBron 19" style="width: 50%">
+          <div class="productBoxContainer">
+            <div class = "productBoxText"> 
+              <div class = "productBoxCategory">Other</div>
+              <h4><b>LeBron 19</b></h4> 
+              <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+              <h4><b>$210.00</b></h4>  
+          </div>
+    
+          <div id = "rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+    
+            <div id = "rating-review">63167 reviews</div>
+     
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class = "column">
+      <a href = "Shoes/soldier 14.html" id = "Black" class="productCard">
+          <img src="images/soldier 14.jpg" alt="soldier 14" style="width: 50%">
+          <div class="productBoxContainer">
+            <div class = "productBoxText"> 
+              <div class = "productBoxCategory">Black</div>
+              <h4><b>Soldier 14</b></h4> 
+              <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+              <h4><b>$140.00</b></h4>  
+          </div>
+    
+          <div id = "rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+    
+            <div id = "rating-review">23332 reviews</div>
+     
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class = "column">
+      <a href = "Shoes/kd 14.html" id = "Black" class="productCard">
+          <img src="images/kd 14.jpg" alt="KD 14" style="width: 50%">
+          <div class="productBoxContainer">
+            <div class = "productBoxText"> 
+              <div class = "productBoxCategory">Black</div>
+              <h4><b>KD 14</b></h4> 
+              <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+              <h4><b>$150.00</b></h4>  
+          </div>
+    
+          <div id = "rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+    
+            <div id = "rating-review">7234 reviews</div>
+     
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class = "column">
+      <a href = "Shoes/aj1midse.html" id = "Red" class="productCard">
+          <img src="images/aj1midse.jpg" alt="KD 14" style="width: 50%">
+          <div class="productBoxContainer">
+            <div class = "productBoxText"> 
+              <div class = "productBoxCategory">Red</div>
+              <h4><b>Air Jordan 1 Mid SE</b></h4> 
+              <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+              <h4><b>$135.00</b></h4>  
+          </div>
+    
+          <div id = "rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+    
+            <div id = "rating-review">53712 reviews</div>
+     
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class = "column">
+      <a href = "Shoes/lebron18.html" id = "Other" class="productCard">
+          <img src="images/lebron18.jpg" alt="Lebron 18" style="width: 50%">
+          <div class="productBoxContainer">
+            <div class = "productBoxText"> 
+              <div class = "productBoxCategory">Other</div>
+              <h4><b>Lebron 18</b></h4> 
+              <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+              <h4><b>$160.00</b></h4>  
+          </div>
+    
+          <div id = "rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+    
+            <div id = "rating-review">12344 reviews</div>
+     
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class = "column">
+      <a href = "Shoes/Nike Air VaporMax 2021 FK.html" id = "Other" class="productCard">
+          <img src="images/vapormax.jpg" alt="Nike Air VaporMax 2021 FK" style="width: 50%">
+          <div class="productBoxContainer">
+            <div class = "productBoxText"> 
+              <div class = "productBoxCategory">Other</div>
+              <h4><b>Nike Air VaporMax 2021 FK</b></h4> 
+              <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+              <h4><b>$210.00</b></h4>  
+          </div>
+    
+          <div id = "rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+    
+            <div id = "rating-review">23467 reviews</div>
+     
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class = "column">
+      <a href = "Shoes/Nike Air VaporMax Plus.html" id = "Black" class="productCard">
+          <img src="images/vapormax plus.jpg" alt="Nike Air VaporMax Plus" style="width: 50%">
+          <div class="productBoxContainer">
+            <div class = "productBoxText"> 
+              <div class = "productBoxCategory">Black</div>
+              <h4><b>Nike Air VaporMax Plus</b></h4> 
+              <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+              <h4><b>$210.00</b></h4>  
+          </div>
+    
+          <div id = "rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+    
+            <div id = "rating-review">10700 reviews</div>
+     
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class = "column">
+      <a href = "Shoes/Nike Air Huarache.html" id = "Other" class="productCard">
+          <img src="images/huarache.jpg" alt="Nike Air Huarache" style="width: 50%">
+          <div class="productBoxContainer">
+            <div class = "productBoxText"> 
+              <div class = "productBoxCategory">Other</div>
+              <h4><b>Nike Air Huarache</b></h4> 
+              <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+              <h4><b>$210.00</b></h4>  
+          </div>
+    
+          <div id = "rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+    
+            <div id = "rating-review">52552 reviews</div>
+     
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class = "column">
+      <a href = "Shoes/Zoom Freak 3.html" id = "Black" class="productCard">
+          <img src="images/Zoom Freak 3.jpg" alt="Zoom Freak 3" style="width: 50%">
+          <div class="productBoxContainer">
+            <div class = "productBoxText"> 
+              <div class = "productBoxCategory">Black</div>
+              <h4><b>Zoom Freak 3</b></h4> 
+              <h5 style = "color: rgb(128, 128, 128);">Nike</h5> 
+              <h4><b>$210.00</b></h4>  
+          </div>
+    
+          <div id = "rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+    
+            <div id = "rating-review">18900 reviews</div>
+     
+          </div>
+        </div>
+      </a>
+    </div>
+      
+</body>
+
+  <script src="item.js"></script>
+  <script>
+    $(function(){
+ 
+    
+      $("#categorySelector").change(function(){
+        var value = $(this).val(); //get value of selected dropdown item
+
+        if(value == "none")
+        { 
+          $(".productCard").show();
+        }
+        else{
+          $(".productCard").hide();
+          $('[id = ' + value + ']').show();  
+        }
+      })
+      
+    });
+    </script>
+
+</html>
