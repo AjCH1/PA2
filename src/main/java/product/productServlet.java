@@ -139,8 +139,10 @@ public class productServlet extends HttpServlet {
          sql = "SELECT * FROM Shoe";
          ResultSet rs = stmt.executeQuery(sql);
          
+         
          while(rs.next()){
             //Retrieve by column name
+            int shoeID = rs.getInt("ID");
            String shoeName = rs.getString("Name");
            Double price = rs.getDouble("Price");
            String description = rs.getString("Description");
@@ -171,29 +173,31 @@ public class productServlet extends HttpServlet {
            
            out.println(" <!--template-->\n" +
 "    <div class = \"column\">\n" +
-"    <a href = \"Shoes/Nike Air Max 270.html\" id = \"Black\" class=\"productCard\">\n" +
-"        <img src=\"images/shoe2.webp\" alt=\"Nike Air Max 270.html\" style=\"width: 50%\">\n" +
+ "    <a href =\"\" id = "+category+" class=\"productCard\">\n" +
+"        <img src=  " + image + " alt=" + image + "style=\"width: 50%\">\n" +
 "        <div class=\"productBoxContainer\">\n" +
 "          <div class = \"productBoxText\"> \n" +
-"            <div class = \"productBoxCategory\">Black</div>\n" +
-"            <h4><b>Air Jordans 5</b></h4> \n" +
-"            <h5 style = \"color: rgb(128, 128, 128);\">Nike</h5> \n" +
-"            <h4><b>$160.00</b></h4>  \n" +
+"            <div class = \"productBoxCategory\">" + category + "</div>\n" +
+"            <h4><b>" + shoeName +"</b></h4> \n" +
+"            <h5 style = \"color: rgb(128, 128, 128);\">" + brand + "</h5> \n" +
+"            <h4><b>$" + price + "0</b></h4>  \n" +
 "        </div>\n" +
 
-                   " <!-- Rating Stars Box -->\n" +
+          "<!-- Rating Stars Box -->\n" +
 "      <div class=\"rate\">\n" +
-"        <input type=\"radio\" id=\"star5\" class=\"star\" name=\"rate\" value=\"5\" />\n" +
+"        <input type=\"radio\" id=\"star5\" class=\"star\" name=" + shoeID + "value=\"5\" />\n" +
 "        <label for=\"star5\">5 stars</label>\n" +
-"        <input type=\"radio\" id=\"star4\" class=\"star\" name=\"rate\" value=\"4\" />\n" +
+"        <input type=\"radio\" id=\"star4\" class=\"star\" name=" + shoeID + "value=\"4\" />\n" +
 "        <label for=\"star4\">4 stars</label>\n" +
-"        <input type=\"radio\" id=\"star3\" class=\"star\" name=\"rate\" value=\"3\" />\n" +
+"        <input type=\"radio\" id=\"star3\" class=\"star\" name=" + shoeID + "value=\"3\" />\n" +
 "        <label for=\"star3\">3 stars</label>\n" +
-"        <input type=\"radio\" id=\"star2\" class=\"star\" name=\"rate\" value=\"2\" />\n" +
+"        <input type=\"radio\" id=\"star2\" class=\"star\" name=" + shoeID + "value=\"2\" />\n" +
 "        <label for=\"star2\">2 stars</label>\n" +
-"        <input type=\"radio\" id=\"star1\" class=\"star\" name=\"rate\" value=\"1\" />\n" +
+"        <input type=\"radio\" id=\"star1\" class=\"star\" name=" + shoeID + "value=\"1\" />\n" +
 "        <label for=\"star1\">1 star</label>\n" +
 "      </div>  " +
+        
+        
                    
                    
 "      </div>\n" +
@@ -201,15 +205,14 @@ public class productServlet extends HttpServlet {
 "    </div>\n" +
 "  <!--template-->");
            
-    
-           
+
  
          }
                   
           out.println("</div>");
          //SCRIPTS
    
-            out.println("  <script>\n" +
+        out.println(" <script>\n" +
 "    $(function(){\n" +
 " \n" +
 "      $(\"#categorySelector\").change(function(){\n" +
@@ -225,26 +228,34 @@ public class productServlet extends HttpServlet {
 "        }\n" +
 "      })\n" +
 "\n" +
-"      //get star value\n" +
-"      $('input[name=\"rate').click(function(e){\n" +
-"        var starValue = $('input[name=\"rate\"]:checked').val();\n" +
-"        console.log(starValue);\n" +
-"        var itemName =  $('input[name=\"rate\"]:checked').attr('id');\n" +
-"        console.log(itemName);\n" +
-"      });        \n" +
+"      \n" +
+"\n" +
+"           \n" +
 "    });\n" +
 "\n" +
 "    </script>");
-            
- 
+        
+        
+         out.println("<script> $(function(){\n" +
+"\n" +
+"  $(\"label\").click(function(){\n" +
+"  $(this).parent().find(\"label\").css({\"background-color\": \"#FFFFFF\"});\n" +
+"  $(this).css({\"background-color\": \"#1e90ff\"});\n" +
+"  $(this).nextAll().css({\"background-color\": \"#1e90ff\"});\n" +
+"  });\n" +
+"\n" +
+"\n" +
+"$('input:radio').click(function() { \n" +
+"  console.log($(this).attr('name')); \n" +
+"  console.log($(this).attr('value')); \n" +
+"});\n" +
+"}); </script>");
          
        } catch  (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
      
-      
  
-      
         out.flush();
     }
     catch(Exception ex)
