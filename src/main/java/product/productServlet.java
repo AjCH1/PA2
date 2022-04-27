@@ -5,11 +5,20 @@
 package product;
 
 import java.io.IOException;
+import java.io.*;
+import java.io.File;
 import java.io.PrintWriter;
+import java.io.OutputStream;
+import javax.servlet.ServletOutputStream;
+import java.sql.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+
 
 /**
  *
@@ -55,15 +64,27 @@ public class productServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+
+    
+            //SPECIFY FOLLOWING TO CONNECT TO MYSQL
+            String uid = "root";
+            String password = "password";
+            String driver = "com.mysql.jdbc.Driver";         
+            String connection = "jdbc:mysql://127.0.0.1/pa2";
+            
           try
     {
-        response.setContentType("text/html");
+         response.setContentType("text/html;charset=UTF-8");
         String name = request.getParameter("name") ;
         PrintWriter out = response.getWriter();
+        
+          // RequestDispatcher rd=request.getRequestDispatcher("productListServlet");  
+       //rd.forward(request, response);  
+    
 
-      
-      
-      out.println("<html lang=\"en\">\n" +
+      out.println("<!doctype html>\n" +
+"<html lang=\"en\">\n" +
 "\n" +
 "<head>\n" +
 "    <meta charset=\"UTF-8\">\n" +
@@ -72,17 +93,17 @@ public class productServlet extends HttpServlet {
 "    <meta name = \"viewport\" content = \"width=device-width, initial-scale = 1.0\">\n" +
 "    <link rel=\"stylesheet\" href=\"//use.fontawesome.com/releases/v5.4.2/css/all.css\">\n" +
 "    <link rel=\"stylesheet\" href=\"style.css\">\n" +
-"    <link href = \"header.html\" rel = \"import\"/>\n" +
 "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>\n" +
 "    <title>E-Commerce Website</title>\n" +
 "</head>");
-      
-      out.println(" <div id=\"nav-placeholder\">\n" +
+ 
+   
+      out.println("<div id=\"nav-placeholder\">\n" +
 "      <header>\n" +
 "        <ul>\n" +
-"          <a href=\"productServlet\"><h1>E-Commerce</h1></a>\n" +
-"          <li><a href=\"AboutServlet\">About</a></li>\n" +
-"          <li><a href=\"productServlet\">Products</a></li>\n" +
+"          <a href=\"index.html\"><h1>E-Commerce</h1></a>\n" +
+"          <li><a href=\"about.html\">About</a></li>\n" +
+"          <li><a href=\"index.html\">Products</a></li>\n" +
 "        </ul>\n" +
 "      </header>\n" +
 "    </div>\n" +
@@ -103,10 +124,53 @@ public class productServlet extends HttpServlet {
 "      </select>\n" +
 "             \n" +
 "    </div>");
-      out.println("  <div class = \"row\">");
-      
-      
-      out.println("  <div class = \"column\">\n" +
+
+         out.println("<div class = \"row\">");
+
+                   try {
+
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection
+                        (connection, uid, password);
+    
+              // Execute SQL query
+         Statement stmt = con.createStatement();
+         String sql;
+         sql = "SELECT * FROM Shoe";
+         ResultSet rs = stmt.executeQuery(sql);
+         
+         while(rs.next()){
+            //Retrieve by column name
+           String shoeName = rs.getString("Name");
+           Double price = rs.getDouble("Price");
+           String description = rs.getString("Description");
+           String category = rs.getString("Category");
+           String brand = rs.getString("Brand");
+           String image = rs.getString("Image");
+           int rating = rs.getInt("Rating");
+           
+        
+           /*
+           out.println("<div class = \"column\">"); //column
+          
+             out.println("    <a href =\"\" id = "+category+" class=\"productCard\">\n" +
+"        <img src=  " + image + " alt=" + image + "style=\"width: 50%\">\n" +
+"        <div class=\"productBoxContainer\">\n" +
+"          <div class = \"productBoxText\"> \n" +
+"            <div class = \"productBoxCategory\">" + category + "</div>\n" +
+"            <h4><b>" + shoeName +"</b></h4> \n" +
+"            <h5 style = \"color: rgb(128, 128, 128);\">" + brand + "</h5> \n" +
+"            <h4><b>$" + price + "0</b></h4>  \n" );
+          
+             
+             out.println("</a>"); //a href
+             out.println("</div>"); //column
+          */
+          
+
+           
+           out.println(" <!--template-->\n" +
+"    <div class = \"column\">\n" +
 "    <a href = \"Shoes/Nike Air Max 270.html\" id = \"Black\" class=\"productCard\">\n" +
 "        <img src=\"images/shoe2.webp\" alt=\"Nike Air Max 270.html\" style=\"width: 50%\">\n" +
 "        <div class=\"productBoxContainer\">\n" +
@@ -116,78 +180,38 @@ public class productServlet extends HttpServlet {
 "            <h5 style = \"color: rgb(128, 128, 128);\">Nike</h5> \n" +
 "            <h4><b>$160.00</b></h4>  \n" +
 "        </div>\n" +
-"\n" +
-"        <div id = \"rating\">\n" +
-"          <span class=\"fa fa-star checked\"></span>\n" +
-"          <span class=\"fa fa-star checked\"></span>\n" +
-"          <span class=\"fa fa-star checked\"></span>\n" +
-"          <span class=\"fa fa-star checked\"></span>\n" +
-"          <span class=\"fa fa-star\"></span>\n" +
-"\n" +
-"          <div id = \"rating-review\">13299 reviews</div>\n" +
-" \n" +
-"        </div>\n" +
+
+                   " <!-- Rating Stars Box -->\n" +
+"      <div class=\"rate\">\n" +
+"        <input type=\"radio\" id=\"star5\" class=\"star\" name=\"rate\" value=\"5\" />\n" +
+"        <label for=\"star5\">5 stars</label>\n" +
+"        <input type=\"radio\" id=\"star4\" class=\"star\" name=\"rate\" value=\"4\" />\n" +
+"        <label for=\"star4\">4 stars</label>\n" +
+"        <input type=\"radio\" id=\"star3\" class=\"star\" name=\"rate\" value=\"3\" />\n" +
+"        <label for=\"star3\">3 stars</label>\n" +
+"        <input type=\"radio\" id=\"star2\" class=\"star\" name=\"rate\" value=\"2\" />\n" +
+"        <label for=\"star2\">2 stars</label>\n" +
+"        <input type=\"radio\" id=\"star1\" class=\"star\" name=\"rate\" value=\"1\" />\n" +
+"        <label for=\"star1\">1 star</label>\n" +
+"      </div>  " +
+                   
+                   
 "      </div>\n" +
 "    </a>\n" +
 "    </div>\n" +
-"\n" +
-"\n" +
-"  <div class = \"column\">\n" +
-"    <a href = \"Shoes/Air Force 1.html\" id = \"White\" class=\"productCard\">\n" +
-"        <img src=\"images/Air Force 1.webp\" alt=\"Air Force 1\" style=\"width:50%\">\n" +
-"        <div class=\"productBoxContainer\">\n" +
-"          <div class = \"productBoxText\"> \n" +
-"            <div class = \"productBoxCategory\">White</div>\n" +
-"            <h4><b>Air Force 1</b></h4> \n" +
-"            <h5 style = \"color: rgb(128, 128, 128);\">Nike</h5> \n" +
-"            <h4><b>$100.00</b></h4>  \n" +
-"        </div>\n" +
-"\n" +
-"        <div id = \"rating\">\n" +
-"          <span class=\"fa fa-star checked\"></span>\n" +
-"          <span class=\"fa fa-star checked\"></span>\n" +
-"          <span class=\"fa fa-star checked\"></span>\n" +
-"          <span class=\"fa fa-star checked\"></span>\n" +
-"          <span class=\"fa fa-star checked\"></span>\n" +
-"\n" +
-"          <div id = \"rating-review\">73462 reviews</div>\n" +
+"  <!--template-->");
+           
+    
+           
+ 
+         }
+                  
+          out.println("</div>");
+         //SCRIPTS
+   
+            out.println("  <script>\n" +
+"    $(function(){\n" +
 " \n" +
-"        </div>\n" +
-"      </div>\n" +
-"    </a>\n" +
-"    </div>\n" +
-"\n" +
-"    <div class = \"column\">\n" +
-"      <a href = \"Shoes/Nike Air Vapormax 2021.html\" id = \"Other\" class=\"productCard\">\n" +
-"          <img src=\"images/shoe3.webp\" alt=\"Nike Air Vapormax 2021\" style=\"width: 50%\">\n" +
-"          <div class=\"productBoxContainer\">\n" +
-"            <div class = \"productBoxText\"> \n" +
-"              <div class = \"productBoxCategory\">Other</div>\n" +
-"              <h4><b>Nike Air Vapormax 2021</b></h4> \n" +
-"              <h5 style = \"color: rgb(128, 128, 128);\">Nike</h5> \n" +
-"              <h4><b>$210.00</b></h4>  \n" +
-"          </div>\n" +
-"  \n" +
-"          <div id = \"rating\">\n" +
-"            <span class=\"fa fa-star checked\"></span>\n" +
-"            <span class=\"fa fa-star checked\"></span>\n" +
-"            <span class=\"fa fa-star checked\"></span>\n" +
-"            <span class=\"fa fa-star checked\"></span>\n" +
-"            <span class=\"fa fa-star\"></span>\n" +
-"  \n" +
-"            <div id = \"rating-review\">26171 reviews</div>\n" +
-"   \n" +
-"          </div>\n" +
-"        </div>\n" +
-"      </a>\n" +
-"      </div>");
-      
-      out.println("</div>");
-      
-      
-      out.println("<script>    $(function(){\n" +
-" \n" +
-"    \n" +
 "      $(\"#categorySelector\").change(function(){\n" +
 "        var value = $(this).val(); //get value of selected dropdown item\n" +
 "\n" +
@@ -200,9 +224,26 @@ public class productServlet extends HttpServlet {
 "          $('[id = ' + value + ']').show();  \n" +
 "        }\n" +
 "      })\n" +
-"      \n" +
-"    });"
-              + "</script>");
+"\n" +
+"      //get star value\n" +
+"      $('input[name=\"rate').click(function(e){\n" +
+"        var starValue = $('input[name=\"rate\"]:checked').val();\n" +
+"        console.log(starValue);\n" +
+"        var itemName =  $('input[name=\"rate\"]:checked').attr('id');\n" +
+"        console.log(itemName);\n" +
+"      });        \n" +
+"    });\n" +
+"\n" +
+"    </script>");
+            
+ 
+         
+       } catch  (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+     
+      
+ 
       
         out.flush();
     }
