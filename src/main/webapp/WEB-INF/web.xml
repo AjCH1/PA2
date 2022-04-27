@@ -20,6 +20,10 @@
         <servlet-name>productListServlet</servlet-name>
         <servlet-class>product.productListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>shoeDetailPage</servlet-name>
+        <servlet-class>product.shoeDetailPage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>productServlet</servlet-name>
         <url-pattern>/productServlet</url-pattern>
@@ -35,6 +39,10 @@
     <servlet-mapping>
         <servlet-name>productListServlet</servlet-name>
         <url-pattern>/productListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>shoeDetailPage</servlet-name>
+        <url-pattern>/shoeDetailPage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -209,103 +209,26 @@ img{
     clear: both;
   }
 
-
-/*star*/
-
-.rating {
-  height: 50%;
-  flex-flow: row-reverse wrap;
  
- display:flex;
+
+
+#rateYo{
+  margin: auto;
+}
+
+.star-rating{
+  display:flex;
   justify-content:center;
+}
+
+#cost{
+  margin-bottom: 1%;
+}
+
+a{
+  border: none !important;
+}
  
- border-width : 0;
- 
-}
-
-.rating>label{
-    border-radius:25px;
-    margin: 1px;
-}
-
-.rating:not(:checked)>input {
-  position: absolute;
-  top: -9999px;
-  visibility: hidden;
-}
-
-.rating:not(:checked)>label {
-  float: right;
-  width: 1em;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-  font-size: 30px;
-  color: #ffd500;
-}
-
-.rating:not(:checked)>label:before {
-  content: '★ ';
-}
-
- 
- 
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { 
-	 color:  yellow;  
-  cursor:pointer;
-} /* hover previous stars in list */
-
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { 
-	 color: yellow;
-  cursor:pointer;
-} 
-
-/*star*/
-
-.rate {
-  height: 50%;
-  flex-flow: row-reverse wrap;
- 
- display:flex;
-  justify-content:center;
- 
- border-width : 0;
-  border-radius:25px;
-    margin: 1px;
-}
-
-.rate:not(:checked)>input {
-  position: absolute;
-  top: -9999px;
-  visibility: hidden;
-}
-
-.rate:not(:checked)>label {
-  float: right;
-  width: 1em;
-  overflow: hidden;
-  white-space: nowrap;
-  cursor: pointer;
-  font-size: 30px;
-  color: #ccc;
-}
-
-.rate:not(:checked)>label:before {
-  content: '★ ';
-}
-
-.rate>input:checked~label {
-  color: #ffc700;
-}
-
-.rate:not(:checked)>label:hover,
-.rate:not(:checked)>label:hover~label {
-  color: #deb217;
-}
-
   /*responsive*/
   @media screen and (max-width:  900px) {  
     .column {

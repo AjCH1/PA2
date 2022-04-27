@@ -64,37 +64,37 @@ public class productServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-
-    
+       
             //SPECIFY FOLLOWING TO CONNECT TO MYSQL
-            String uid = "root";
-            String password = "password";
-            String driver = "com.mysql.jdbc.Driver";         
-            String connection = "jdbc:mysql://127.0.0.1/pa2";
+            String uid = "root"; //user is "root"
+            String password = "password"; //password
+            String driver = "com.mysql.jdbc.Driver";   //Driver is version 8.0.29      
+            String connection = "jdbc:mysql://127.0.0.1/pa2"; //Load SQL Script
             
           try
     {
          response.setContentType("text/html;charset=UTF-8");
         String name = request.getParameter("name") ;
         PrintWriter out = response.getWriter();
-        
-          // RequestDispatcher rd=request.getRequestDispatcher("productListServlet");  
-       //rd.forward(request, response);  
-    
-
-      out.println("<!doctype html>\n" +
-"<html lang=\"en\">\n" +
-"\n" +
-"<head>\n" +
+      
+ 
+ out.println("<!doctype html>\n" +
+"<html lang=\"en\">");
+      
+      out.println("<head>\n" +
 "    <meta charset=\"UTF-8\">\n" +
 "    <meta name=\"author\" content=\"\">\n" +
 "    <meta name=\"description\" content=\"E-Commerce Website\">\n" +
 "    <meta name = \"viewport\" content = \"width=device-width, initial-scale = 1.0\">\n" +
 "    <link rel=\"stylesheet\" href=\"//use.fontawesome.com/releases/v5.4.2/css/all.css\">\n" +
 "    <link rel=\"stylesheet\" href=\"style.css\">\n" +
+"    <link href = \"header.html\" rel = \"import\"/>\n" +
 "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>\n" +
 "    <title>E-Commerce Website</title>\n" +
+"\n" +
+"    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css\">\n" +
+"    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js\"></script>\n" +
+"\n" +
 "</head>");
  
    
@@ -151,105 +151,96 @@ public class productServlet extends HttpServlet {
            String image = rs.getString("Image");
            int rating = rs.getInt("Rating");
            
-        
-           /*
-           out.println("<div class = \"column\">"); //column
+         
           
-             out.println("    <a href =\"\" id = "+category+" class=\"productCard\">\n" +
-"        <img src=  " + image + " alt=" + image + "style=\"width: 50%\">\n" +
-"        <div class=\"productBoxContainer\">\n" +
-"          <div class = \"productBoxText\"> \n" +
-"            <div class = \"productBoxCategory\">" + category + "</div>\n" +
-"            <h4><b>" + shoeName +"</b></h4> \n" +
-"            <h5 style = \"color: rgb(128, 128, 128);\">" + brand + "</h5> \n" +
-"            <h4><b>$" + price + "0</b></h4>  \n" );
-          
-             
-             out.println("</a>"); //a href
-             out.println("</div>"); //column
-          */
-          
-
            
-           out.println(" <!--template-->\n" +
+           
+           out.println("<!--template-->\n" +
 "    <div class = \"column\">\n" +
- "    <a href =\"\" id = "+category+" class=\"productCard\">\n" +
-"        <img src=  " + image + " alt=" + image + "style=\"width: 50%\">\n" +
-"        <div class=\"productBoxContainer\">\n" +
-"          <div class = \"productBoxText\"> \n" +
-"            <div class = \"productBoxCategory\">" + category + "</div>\n" +
-"            <h4><b>" + shoeName +"</b></h4> \n" +
-"            <h5 style = \"color: rgb(128, 128, 128);\">" + brand + "</h5> \n" +
-"            <h4><b>$" + price + "0</b></h4>  \n" +
+"      <a href = \"\" id = "+category+ "  class=\"productCard\">\n" +
+"          <img src= " + image + " alt=" + image + " style=\"width: 50%\">\n" +
+"          <div class=\"productBoxContainer\">\n" +
+"            <div class = \"productBoxText\"> \n" +
+"              <div class = \"productBoxCategory\">" + category + "</div>\n" +
+"              <h4><b>" + shoeName +"</b></h4> \n" +
+"              <h5 style = \"color: rgb(128, 128, 128);\">" + brand + "</h5> \n" +
+"              <h4 id = ><b>$" + price + "</b></h4>  \n" +
+"            </div>\n" +
+"            </div>\n" +
+"        </a>\n" +
+"\n" +
+"        <div class=\"star-rating\" id = "+category+">                                                            <!--star rating-->\n" +
+"          <div id="+shoeID+" data-rating="+rating+" data-rateyo-read-only=\"false\" class=\"rateYo\" name = "+shoeID+">                                         \n" +
 "        </div>\n" +
-
-          "<!-- Rating Stars Box -->\n" +
-"      <div class=\"rate\">\n" +
-"        <input type=\"radio\" id=\"star5\" class=\"star\" name=" + shoeID + "value=\"5\" />\n" +
-"        <label for=\"star5\">5 stars</label>\n" +
-"        <input type=\"radio\" id=\"star4\" class=\"star\" name=" + shoeID + "value=\"4\" />\n" +
-"        <label for=\"star4\">4 stars</label>\n" +
-"        <input type=\"radio\" id=\"star3\" class=\"star\" name=" + shoeID + "value=\"3\" />\n" +
-"        <label for=\"star3\">3 stars</label>\n" +
-"        <input type=\"radio\" id=\"star2\" class=\"star\" name=" + shoeID + "value=\"2\" />\n" +
-"        <label for=\"star2\">2 stars</label>\n" +
-"        <input type=\"radio\" id=\"star1\" class=\"star\" name=" + shoeID + "value=\"1\" />\n" +
-"        <label for=\"star1\">1 star</label>\n" +
-"      </div>  " +
-        
-        
-                   
-                   
+"        </div>\n" +
+"    \n" +
 "      </div>\n" +
-"    </a>\n" +
-"    </div>\n" +
-"  <!--template-->");
-           
+"    <!--template-->");
+       
 
  
          }
+       
                   
-          out.println("</div>");
+          out.println("</div>"); //row
          //SCRIPTS
    
-        out.println(" <script>\n" +
-"    $(function(){\n" +
+       out.println("<script>");
+       
+      
+       out.println("  $(function(){\n" +
 " \n" +
 "      $(\"#categorySelector\").change(function(){\n" +
 "        var value = $(this).val(); //get value of selected dropdown item\n" +
-"\n" +
 "        if(value == \"none\")\n" +
 "        { \n" +
 "          $(\".productCard\").show();\n" +
+"          $(\".star-rating\").show();\n" +
 "        }\n" +
 "        else{\n" +
 "          $(\".productCard\").hide();\n" +
+"          $(\".star-rating\").hide();\n" +
 "          $('[id = ' + value + ']').show();  \n" +
 "        }\n" +
-"      })\n" +
-"\n" +
-"      \n" +
-"\n" +
-"           \n" +
+"      })        \n" +
 "    });\n" +
 "\n" +
-"    </script>");
-        
-        
-         out.println("<script> $(function(){\n" +
+"$(function(){\n" +
+" // star rating  \n" +
+" $(\".rateYo\").each(function (e) {\n" +
+"    \n" +
+"    var ChngRatevaluesEn = {1:'bad',2:'poor',3:'ok',4:'good',5:'super'};\n" +
+"    var ChngRatevaluesAr = {1:'bad-Ar',2:'poor-Ar',3:'ok-Ar',4:'good-Ar',5:'super-Ar'};\n" +
+" \n" +
+"    var rating = $(this).attr(\"data-rating\");\n" +
+"    var id = $(this).attr(\"id\");\n" +
+"    $(this).rateYo({\n" +
+"        onSet: function (rating) {\n" +
 "\n" +
-"  $(\"label\").click(function(){\n" +
-"  $(this).parent().find(\"label\").css({\"background-color\": \"#FFFFFF\"});\n" +
-"  $(this).css({\"background-color\": \"#1e90ff\"});\n" +
-"  $(this).nextAll().css({\"background-color\": \"#1e90ff\"});\n" +
+"\n" +
+"            console.log(rating);\n" +
+"            console.log(id);\n" +
+"          },\n" +
+"        rating: rating,\n" +
+"        starWidth: \"20px\",\n" +
+"        numStars: 5,\n" +
+"        fullStar: true,\n" +
+"        normalFill: \"#A0A0A0\",\n" +
+"        spacing: \"5px\",\n" +
+"        precision: 2,\n" +
+"        // rtl: true,\n" +
+"        // readOnly: true,\n" +
+"    });\n" +
 "  });\n" +
-"\n" +
-"\n" +
-"$('input:radio').click(function() { \n" +
-"  console.log($(this).attr('name')); \n" +
-"  console.log($(this).attr('value')); \n" +
-"});\n" +
-"}); </script>");
+"});");
+       
+       
+       out.println("</script>");
+         
+         
+         
+ 
+ 
          
        } catch  (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -263,6 +254,7 @@ public class productServlet extends HttpServlet {
         ex.printStackTrace();    
     }
           
+       
         
         
     }
